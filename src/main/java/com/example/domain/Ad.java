@@ -27,7 +27,7 @@ public class Ad implements Identifiable<Long> {
     public enum Type {BUY, SELL}
 
     @Column(nullable = false)
-    private BigInteger amount;
+    @Getter @Setter private BigInteger amount;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -36,7 +36,7 @@ public class Ad implements Identifiable<Long> {
     public enum Currency {USD, EUR}
 
     @Column(nullable = false)
-    private BigDecimal rate;
+    @Getter @Setter private BigDecimal rate;
 
     @ManyToOne
     @JoinColumn(nullable = false)
@@ -63,7 +63,7 @@ public class Ad implements Identifiable<Long> {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private Status status = Status.NEW;
+    @Getter @Setter private Status status = Status.NEW;
 
     public enum Status{NEW, PUBLISHED, EXPIRED}
 
